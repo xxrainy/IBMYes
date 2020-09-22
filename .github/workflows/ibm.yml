@@ -1,4 +1,4 @@
-name: IBM Cloud Auto Restart
+name: IBMMBI Cloud Auto Restart
 
 on:
   push:
@@ -17,13 +17,13 @@ jobs:
 
     - name: Init
       run: |
-        chmod -R 777 ./IBM_Cloud_CLI/
+        chmod -R 777 ./IBMMBI_Cloud_CLI/
     - name: Login IBM Cloud
       env:
         IBM_ACCOUNT: ${{ secrets.IBM_ACCOUNT }}
         REGION_NUM: ${{ secrets.REGION_NUM }}
       run: |
-        ./IBM_Cloud_CLI/ibmcloud login <<EOF
+        ./IBMMBI_Cloud_CLI/ibmcloud login <<EOF
         $IBM_ACCOUNT
         $REGION_NUM
         no
@@ -39,5 +39,5 @@ jobs:
       env:
         IBM_APP_NAME: ${{ secrets.IBM_APP_NAME }}
       run: |
-        ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
+        ./IBMMBI_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
 
